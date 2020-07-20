@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=bajatin
+Comment=fox profile
+Exec=firefox -Profile /home/bajatin/.mozilla/firefox/yp3z617h.default-release-1594639149467 -no-remote
+Path=/home/bajatin
+Icon=/home/bajatin/Pictures/firefox1.ico
+Terminal=false
+StartupNotify=false
