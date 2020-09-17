@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=bjtn
-Comment=my second profile
-Exec=firefox -Profile /home/bajatin/.mozilla/firefox/em6vvnbm.bjtn -no-remote
-Path=/home/bajatin
-Icon=/home/bajatin/Pictures/firefox2.ico
-Terminal=false
-StartupNotify=false
