@@ -1,14 +1,7 @@
-source $HOME/.config/nvim/general/settings.vim
-" Specify a directory for plugins
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/site/autoload')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'Yggdroot/indentLine'
-"Plug 'nathanaelkane/vim-indent-guides'
-"Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 " airline (powerline)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -31,14 +24,13 @@ noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 inoremap jk <ESC>
 inoremap kj <ESC>
 nnoremap ; :
+
 " Color scheme
 colorscheme gruvbox
 
 " Indent lines
 let g:indentLine_char = "▏" 
 
-" Ulti snips 
-let g:UltiSnipsExpandTrigger = '<f5>'
 
 " coc config
 let g:coc_global_extensions = [
@@ -51,13 +43,29 @@ let g:coc_global_extensions = [
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-
+set mouse=a
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
 
+" set hybrid line numbering
+set number relativenumber
+
+"Clipboard settings
+set clipboard=unnamedplus
+
+set autoindent		 "Auto-indent new lines
+set shiftwidth=4	" Number of auto-indent spaces
+set smartindent		" Enable smart-indent
+set smarttab		" Enable smart-tabs
+set softtabstop=4	" Number of spaces per Tab
+set smartcase		" Enable smart-case search
+set ignorecase		" Always case-insensitive
+set incsearch		" Searches for strings incrementally
+set spell
+ 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -126,13 +134,13 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <silent>qf  <Plug>(coc-fix-current)
 
 " Coc-pairs 
-autocmd FileType cpp let b:coc_pairs_disabled = ['<']
+autocmd FileType cpp let b:coc_pairs_diabled = ['<']
 
 " Coc-explorer
-:nmap <space>e :CocCommand explorer<CR>
+":nmap <space>e :CocCommand explorer<CR>
 
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
@@ -182,5 +190,3 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
   cmap Q q
   cmap W w
   cmap 1 !
-
-
