@@ -39,8 +39,6 @@ cd() # cd and ls after
 	builtin cd "$@" && command ls --color=auto -F
 }
 
-
-
 src() # recompile completion and reload zsh
 {
 	autoload -U zrecompile
@@ -153,6 +151,7 @@ zstyle ':completion:*:correct:*' insert-unambiguous true
 zstyle ':completion:*:approximate:*' max-errors 'reply=($(( ($#PREFIX + $#SUFFIX) / 3 )) numeric)'
 
 # completion
+zstyle ':completion:*' menu yes select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$comppath"
 zstyle ':completion:*' rehash true
@@ -170,7 +169,6 @@ zstyle ':completion:*' completer _complete _match _approximate _ignored
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # labels and categories
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:matches' group 'yes'
@@ -212,5 +210,6 @@ compinit -u -d "$compfile"
 # initialize prompt with a decent built-in theme
 promptinit
 prompt adam1
-source /home/bajatin/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/bajatin/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
